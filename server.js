@@ -18,13 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', require('./backend/routes/auth'));
 app.use('/api/users', require('./backend/routes/users'));
 
-// Serve login page
+// Serve dashboard directly (no login required for testing)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
-
-// Serve dashboard
-app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
